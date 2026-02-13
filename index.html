@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Notification Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Job Detail Modal -->
+  <div class="jnt-modal" id="job-modal">
+    <div class="jnt-modal-overlay" id="modal-overlay"></div>
+    <div class="jnt-modal-content">
+      <button class="jnt-modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <!-- Top Navigation -->
+  <header class="jnt-nav">
+    <a href="#/" class="jnt-logo">Job Notification Tracker</a>
+    <button class="jnt-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="jnt-nav-links" id="nav-links">
+      <a href="#/dashboard" class="jnt-nav-link" data-route="dashboard">Dashboard</a>
+      <a href="#/saved" class="jnt-nav-link" data-route="saved">Saved</a>
+      <a href="#/digest" class="jnt-nav-link" data-route="digest">Digest</a>
+      <a href="#/settings" class="jnt-nav-link" data-route="settings">Settings</a>
+      <a href="#/proof" class="jnt-nav-link" data-route="proof">Proof</a>
+    </nav>
+  </header>
+
+  <main class="jnt-main">
+    <!-- Landing (/) -->
+    <section class="jnt-page jnt-landing" id="page-home">
+      <div class="jnt-hero">
+        <h1 class="jnt-hero-headline">Stop Missing The Right Jobs.</h1>
+        <p class="jnt-hero-subtext">Precision-matched job discovery delivered daily at 9AM.</p>
+        <a href="#/settings" class="jnt-btn jnt-btn-primary" id="cta-start-tracking">Start Tracking</a>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="jnt-page" id="page-dashboard">
+      <div class="jnt-dashboard-header">
+        <div class="jnt-dashboard-header-top">
+          <div>
+            <h2 class="jnt-page-title">Job Dashboard</h2>
+            <p class="jnt-page-subtext" id="dashboard-count">60 jobs available</p>
+          </div>
+          <label class="jnt-toggle-label">
+            <input type="checkbox" id="toggle-matches-only" class="jnt-toggle">
+            <span>Show only jobs above my threshold</span>
+          </label>
+        </div>
+        <div class="jnt-prefs-banner jnt-hidden" id="dashboard-prefs-banner">
+          <p>Set your preferences to activate intelligent matching.</p>
+          <a href="#/settings" class="jnt-btn jnt-btn-primary jnt-btn-sm">Go to Settings</a>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="jnt-filter-bar">
+        <div class="jnt-filter-group">
+          <input type="text" id="filter-keyword" class="jnt-input jnt-filter-input" placeholder="Search jobs...">
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-location" class="jnt-input jnt-select jnt-filter-select">
+            <option value="">All Locations</option>
+          </select>
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-mode" class="jnt-input jnt-select jnt-filter-select">
+            <option value="">All Modes</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Onsite">Onsite</option>
+          </select>
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-experience" class="jnt-input jnt-select jnt-filter-select">
+            <option value="">All Experience</option>
+            <option value="Fresher">Fresher</option>
+            <option value="0-1">0-1 years</option>
+            <option value="1-3">1-3 years</option>
+            <option value="3-5">3-5 years</option>
+          </select>
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-source" class="jnt-input jnt-select jnt-filter-select">
+            <option value="">All Sources</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Naukri">Naukri</option>
+            <option value="Indeed">Indeed</option>
+          </select>
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-status" class="jnt-input jnt-select jnt-filter-select">
+            <option value="">All</option>
+            <option value="Not Applied">Not Applied</option>
+            <option value="Applied">Applied</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Selected">Selected</option>
+          </select>
+        </div>
+        <div class="jnt-filter-group">
+          <select id="filter-sort" class="jnt-input jnt-select jnt-filter-select">
+            <option value="latest">Latest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="match-score">Match Score (High to Low)</option>
+            <option value="salary-high">Salary: High to Low</option>
+            <option value="salary-low">Salary: Low to High</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Job Cards Container -->
+      <div class="jnt-jobs-grid" id="jobs-container">
+        <!-- Job cards will be rendered here -->
+      </div>
+
+      <div class="jnt-empty-state jnt-empty-hidden" id="dashboard-empty">
+        <h2 class="jnt-empty-title">No jobs found</h2>
+        <p class="jnt-empty-text" id="empty-state-text">Try adjusting your filters to see more results.</p>
+      </div>
+    </section>
+
+    <!-- Saved -->
+    <section class="jnt-page" id="page-saved">
+      <div class="jnt-dashboard-header">
+        <h2 class="jnt-page-title">Saved Jobs</h2>
+        <p class="jnt-page-subtext" id="saved-count">0 jobs saved</p>
+      </div>
+
+      <!-- Saved Jobs Container -->
+      <div class="jnt-jobs-grid" id="saved-container">
+        <!-- Saved job cards will be rendered here -->
+      </div>
+
+      <!-- Premium Empty State -->
+      <div class="jnt-empty-state jnt-empty-premium" id="saved-empty">
+        <div class="jnt-empty-icon">⭐</div>
+        <h2 class="jnt-empty-title">No saved jobs yet</h2>
+        <p class="jnt-empty-text">Start exploring jobs on the Dashboard and save the ones that interest you. Your saved jobs will appear here for easy access.</p>
+        <a href="#/dashboard" class="jnt-btn jnt-btn-primary">Browse Jobs</a>
+      </div>
+    </section>
+
+    <!-- Digest -->
+    <section class="jnt-page" id="page-digest">
+      <div class="jnt-digest-wrap">
+        <div class="jnt-digest-block jnt-digest-no-prefs jnt-hidden" id="digest-no-prefs">
+          <div class="jnt-empty-state">
+            <h2 class="jnt-empty-title">Your digest</h2>
+            <p class="jnt-empty-text">Set preferences to generate a personalized digest.</p>
+            <a href="#/settings" class="jnt-btn jnt-btn-primary">Go to Settings</a>
+          </div>
+        </div>
+        <div class="jnt-digest-block jnt-digest-generate jnt-hidden" id="digest-generate">
+          <div class="jnt-empty-state">
+            <h2 class="jnt-empty-title">Your digest</h2>
+            <p class="jnt-empty-text">Generate today's 9AM digest to see your top 10 matched jobs.</p>
+            <button type="button" class="jnt-btn jnt-btn-primary" id="digest-generate-btn">Generate Today's 9AM Digest (Simulated)</button>
+          </div>
+          <p class="jnt-digest-demo-note">Demo Mode: Daily 9AM trigger simulated manually.</p>
+        </div>
+        <div class="jnt-digest-block jnt-digest-no-matches jnt-hidden" id="digest-no-matches">
+          <div class="jnt-empty-state">
+            <h2 class="jnt-empty-title">Your digest</h2>
+            <p class="jnt-empty-text">No matching roles today. Check again tomorrow.</p>
+          </div>
+        </div>
+        <div class="jnt-digest-block jnt-digest-content jnt-hidden" id="digest-content">
+          <div class="jnt-digest-card">
+            <header class="jnt-digest-header">
+              <h2 class="jnt-digest-title">Top 10 Jobs For You — 9AM Digest</h2>
+              <p class="jnt-digest-date" id="digest-date"></p>
+            </header>
+            <div class="jnt-digest-jobs" id="digest-jobs-list"></div>
+            <footer class="jnt-digest-footer">
+              <p class="jnt-digest-footer-text">This digest was generated based on your preferences.</p>
+            </footer>
+          </div>
+          <div class="jnt-digest-actions">
+            <button type="button" class="jnt-btn jnt-btn-secondary" id="digest-copy-btn">Copy Digest to Clipboard</button>
+            <button type="button" class="jnt-btn jnt-btn-secondary" id="digest-email-draft">Create Email Draft</button>
+          </div>
+          <p class="jnt-digest-demo-note">Demo Mode: Daily 9AM trigger simulated manually.</p>
+        </div>
+        <section class="jnt-digest-status-updates jnt-hidden" id="digest-status-updates-wrap">
+          <h3 class="jnt-digest-status-updates-title">Recent Status Updates</h3>
+          <div class="jnt-digest-status-updates-list" id="digest-status-updates-list"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section class="jnt-page" id="page-settings">
+      <div class="jnt-settings">
+        <h2 class="jnt-page-title">Preferences</h2>
+        <p class="jnt-page-subtext">Configure how we match jobs to you.</p>
+        <div class="jnt-settings-form" id="settings-form">
+          <div class="jnt-field">
+            <label class="jnt-label" for="pref-role">Role keywords</label>
+            <input type="text" id="pref-role" class="jnt-input" placeholder="e.g. Frontend, React, Product Manager">
+            <small class="jnt-field-hint">Comma-separated keywords</small>
+          </div>
+          <div class="jnt-field">
+            <label class="jnt-label" for="pref-locations">Preferred locations</label>
+            <select id="pref-locations" class="jnt-input jnt-select" multiple size="5">
+              <option value="Bangalore">Bangalore</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Pune">Pune</option>
+              <option value="Noida">Noida</option>
+              <option value="Remote">Remote</option>
+            </select>
+            <small class="jnt-field-hint">Hold Ctrl/Cmd to select multiple</small>
+          </div>
+          <div class="jnt-field">
+            <label class="jnt-label">Preferred mode</label>
+            <div class="jnt-checkbox-group">
+              <label class="jnt-checkbox-label">
+                <input type="checkbox" id="pref-mode-remote" value="Remote">
+                <span>Remote</span>
+              </label>
+              <label class="jnt-checkbox-label">
+                <input type="checkbox" id="pref-mode-hybrid" value="Hybrid">
+                <span>Hybrid</span>
+              </label>
+              <label class="jnt-checkbox-label">
+                <input type="checkbox" id="pref-mode-onsite" value="Onsite">
+                <span>Onsite</span>
+              </label>
+            </div>
+          </div>
+          <div class="jnt-field">
+            <label class="jnt-label" for="pref-experience">Experience level</label>
+            <select id="pref-experience" class="jnt-input jnt-select">
+              <option value="">Select level</option>
+              <option value="Fresher">Fresher</option>
+              <option value="0-1">0-1 years</option>
+              <option value="1-3">1-3 years</option>
+              <option value="3-5">3-5 years</option>
+            </select>
+          </div>
+          <div class="jnt-field">
+            <label class="jnt-label" for="pref-skills">Skills</label>
+            <input type="text" id="pref-skills" class="jnt-input" placeholder="e.g. React, Python, Java, Node.js">
+            <small class="jnt-field-hint">Comma-separated skills</small>
+          </div>
+          <div class="jnt-field">
+            <label class="jnt-label" for="pref-min-match">
+              Minimum match score: <span id="min-match-value">40</span>
+            </label>
+            <input type="range" id="pref-min-match" class="jnt-slider" min="0" max="100" value="40">
+            <div class="jnt-slider-labels">
+              <span>0</span>
+              <span>100</span>
+            </div>
+          </div>
+          <div class="jnt-field">
+            <button type="button" class="jnt-btn jnt-btn-primary" id="save-preferences">Save Preferences</button>
+          </div>
+        </div>
+        <div class="jnt-prefs-banner jnt-hidden" id="prefs-banner">
+          <p>Set your preferences to activate intelligent matching.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof (main nav) — Final Proof & submission -->
+    <section class="jnt-page jnt-final-proof-page" id="page-proof">
+      <div class="jnt-final-proof-wrap">
+        <h2 class="jnt-page-title">Project 1 — Job Notification Tracker</h2>
+        <div class="jnt-proof-status-badge" id="jnt-proof-status-badge">Not Started</div>
+        <p class="jnt-proof-shipped-msg jnt-hidden" id="jnt-proof-shipped-msg">Project 1 Shipped Successfully.</p>
+
+        <section class="jnt-proof-section" aria-labelledby="jnt-proof-steps-heading">
+          <h3 class="jnt-proof-section-title" id="jnt-proof-steps-heading">A) Step Completion Summary</h3>
+          <ul class="jnt-proof-steps" id="jnt-proof-steps">
+            <li class="jnt-proof-step" data-step="1"><span class="jnt-proof-step-status">Pending</span> Dashboard &amp; job listing</li>
+            <li class="jnt-proof-step" data-step="2"><span class="jnt-proof-step-status">Pending</span> Preferences &amp; match scoring</li>
+            <li class="jnt-proof-step" data-step="3"><span class="jnt-proof-step-status">Pending</span> Saved jobs</li>
+            <li class="jnt-proof-step" data-step="4"><span class="jnt-proof-step-status">Pending</span> Digest generation</li>
+            <li class="jnt-proof-step" data-step="5"><span class="jnt-proof-step-status">Pending</span> Status tracking</li>
+            <li class="jnt-proof-step" data-step="6"><span class="jnt-proof-step-status">Pending</span> Status filter</li>
+            <li class="jnt-proof-step" data-step="7"><span class="jnt-proof-step-status">Pending</span> Test checklist (10/10)</li>
+            <li class="jnt-proof-step" data-step="8"><span class="jnt-proof-step-status">Pending</span> Artifact links</li>
+          </ul>
+        </section>
+
+        <section class="jnt-proof-section" aria-labelledby="jnt-proof-artifacts-heading">
+          <h3 class="jnt-proof-section-title" id="jnt-proof-artifacts-heading">B) Artifact Collection Inputs</h3>
+          <div class="jnt-proof-fields">
+            <div class="jnt-field">
+              <label class="jnt-label" for="jnt-proof-lovable">Lovable Project Link</label>
+              <input type="url" id="jnt-proof-lovable" class="jnt-input" placeholder="https://...">
+              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-lovable-error" aria-live="polite"></span>
+            </div>
+            <div class="jnt-field">
+              <label class="jnt-label" for="jnt-proof-github">GitHub Repository Link</label>
+              <input type="url" id="jnt-proof-github" class="jnt-input" placeholder="https://github.com/...">
+              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-github-error" aria-live="polite"></span>
+            </div>
+            <div class="jnt-field">
+              <label class="jnt-label" for="jnt-proof-deployed">Deployed URL (Vercel or equivalent)</label>
+              <input type="url" id="jnt-proof-deployed" class="jnt-input" placeholder="https://...">
+              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-deployed-error" aria-live="polite"></span>
+            </div>
+          </div>
+        </section>
+
+        <div class="jnt-proof-actions">
+          <button type="button" class="jnt-btn jnt-btn-primary" id="jnt-proof-copy-btn">Copy Final Submission</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built-In Test Checklist (jt/07-test) -->
+    <section class="jnt-page jnt-test-page" id="page-jt-07-test">
+      <div class="jnt-test-wrap">
+        <h2 class="jnt-page-title">Built-In Test Checklist</h2>
+        <p class="jnt-page-subtext">Verify all items before shipping.</p>
+        <div class="jnt-test-summary" id="jnt-test-summary">
+          <span class="jnt-test-summary-count">Tests Passed: <strong id="jnt-test-passed-count">0</strong> / 10</span>
+        </div>
+        <p class="jnt-test-warning jnt-hidden" id="jnt-test-warning">Resolve all issues before shipping.</p>
+        <div class="jnt-test-checklist" id="jnt-test-checklist">
+          <label class="jnt-test-item" data-test-id="1">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="1">
+            <span class="jnt-test-label">Preferences persist after refresh</span>
+            <span class="jnt-test-tooltip" title="Save preferences in Settings, refresh the page, then confirm they are still set.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="2">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="2">
+            <span class="jnt-test-label">Match score calculates correctly</span>
+            <span class="jnt-test-tooltip" title="Set role keywords/skills in Settings, then check that job cards show Match score and it changes with preferences.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="3">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="3">
+            <span class="jnt-test-label">"Show only matches" toggle works</span>
+            <span class="jnt-test-tooltip" title="On Dashboard, enable 'Show only jobs above my threshold' and confirm the list filters by match score.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="4">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="4">
+            <span class="jnt-test-label">Save job persists after refresh</span>
+            <span class="jnt-test-tooltip" title="Save a job on Dashboard, refresh, then open Saved and confirm the job is still there.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="5">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="5">
+            <span class="jnt-test-label">Apply opens in new tab</span>
+            <span class="jnt-test-tooltip" title="Click Apply on a job card; in a full implementation this would open the apply URL in a new tab.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="6">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="6">
+            <span class="jnt-test-label">Status update persists after refresh</span>
+            <span class="jnt-test-tooltip" title="Change a job status (Applied/Rejected/Selected), refresh, and confirm the status is still set.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="7">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="7">
+            <span class="jnt-test-label">Status filter works correctly</span>
+            <span class="jnt-test-tooltip" title="On Dashboard, use the Status dropdown to filter by Applied/Rejected/Selected and confirm only matching jobs show.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="8">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="8">
+            <span class="jnt-test-label">Digest generates top 10 by score</span>
+            <span class="jnt-test-tooltip" title="Set preferences, go to Digest, generate today's digest, and confirm you see up to 10 jobs ordered by match score.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="9">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="9">
+            <span class="jnt-test-label">Digest persists for the day</span>
+            <span class="jnt-test-tooltip" title="Generate a digest, navigate away and back to Digest, and confirm the same digest is still shown.">How to test</span>
+          </label>
+          <label class="jnt-test-item" data-test-id="10">
+            <input type="checkbox" class="jnt-test-checkbox" data-test-id="10">
+            <span class="jnt-test-label">No console errors on main pages</span>
+            <span class="jnt-test-tooltip" title="Open DevTools Console and visit Dashboard, Saved, Digest, Settings; confirm no errors appear.">How to test</span>
+          </label>
+        </div>
+        <div class="jnt-test-actions">
+          <button type="button" class="jnt-btn jnt-btn-secondary" id="jnt-test-reset-btn">Reset Test Status</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ship (jt/08-ship) - locked until all tests pass -->
+    <section class="jnt-page jnt-ship-page" id="page-jt-08-ship">
+      <div class="jnt-ship-wrap" id="jnt-ship-wrap">
+        <div class="jnt-ship-locked jnt-ship-state" id="jnt-ship-locked">
+          <div class="jnt-ship-lock-icon" aria-hidden="true">🔒</div>
+          <h2 class="jnt-page-title">Ship Locked</h2>
+          <p class="jnt-page-subtext">Complete all 10 items on the <a href="#/jt/07-test" class="jnt-ship-link">Built-In Test Checklist</a> and provide all artifact links on <a href="#/proof" class="jnt-ship-link">Proof</a> to unlock.</p>
+        </div>
+        <div class="jnt-ship-unlocked jnt-ship-state jnt-hidden" id="jnt-ship-unlocked">
+          <h2 class="jnt-page-title">Ready to Ship</h2>
+          <p class="jnt-page-subtext">All tests passed. You're good to go.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="jobs-data.js"></script>
+  <script src="router.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('cta-start-tracking')?.addEventListener('click', function(e) {
+      window.location.hash = '#/settings';
+    });
+  </script>
+</body>
+</html>
