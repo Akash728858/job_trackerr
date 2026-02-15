@@ -986,11 +986,13 @@ function closeModal() {
 
 // Handle Apply button click
 function handleApplyClick(job) {
-  // Show demo notification since these are placeholder URLs
-  showNotification(`This is a demo application. To apply for "${job.title}" at ${job.company}, please visit their official careers page.`, 'info');
-  
-  // Optionally, you could open the URL anyway (but it will show 404)
-  // window.open(job.applyUrl, '_blank');
+  const url = job && job.applyUrl ? job.applyUrl.trim() : '';
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    showNotification(`Opening application page for "${job.title}" at ${job.company}...`, 'info');
+  } else {
+    showNotification(`No apply link available for "${job.title}" at ${job.company}. Visit their careers page directly.`, 'info');
+  }
 }
 
 // Show toast notification
