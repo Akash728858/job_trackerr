@@ -15,7 +15,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://www.amazon.jobs/en/jobs/123456",
+    applyUrl: "https://www.amazon.jobs/",
     description: "Join Amazon's internship program to work on cutting-edge projects. You'll collaborate with experienced engineers, learn best practices, and contribute to real-world solutions. Ideal for students passionate about software development and eager to grow."
   },
   {
@@ -29,7 +29,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 5,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://careers.tcs.com/job/12345",
+    applyUrl: "https://www.tcs.com/careers",
     description: "TCS Graduate Engineer Trainee program offers comprehensive training in enterprise software development. You'll work on client projects, learn industry-standard tools, and build a strong foundation for your career in IT services."
   },
   {
@@ -43,7 +43,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://razorpay.com/careers/junior-backend-dev",
+    applyUrl: "https://careers.razorpay.com/",
     description: "Build scalable payment infrastructure at Razorpay. Work on microservices architecture, handle high-volume transactions, and solve complex technical challenges. Great learning opportunity in fintech."
   },
   {
@@ -85,7 +85,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 0,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://www.flipkartcareers.com/internship",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Analyze e-commerce data to drive business decisions at Flipkart. Work with large datasets, create dashboards, and provide insights to product teams. Ideal for data science enthusiasts."
   },
   {
@@ -99,7 +99,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 6,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://www.infosys.com/careers/java-dev",
+    applyUrl: "https://www.infosys.com/careers",
     description: "Develop enterprise Java applications at Infosys. Work on client projects, learn Spring framework, and build robust backend systems. Comprehensive training and mentorship provided."
   },
   {
@@ -113,7 +113,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 7,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://www.accenture.com/careers/python-dev",
+    applyUrl: "https://www.accenture.com/in-en/careers",
     description: "Build web applications using Python and Django at Accenture. Work on diverse projects, learn agile methodologies, and grow your skills in a supportive environment."
   },
   {
@@ -127,7 +127,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://www.freshworks.com/careers/react-dev",
+    applyUrl: "https://www.freshworks.com/company/careers/",
     description: "Build modern SaaS products at Freshworks using React and TypeScript. Work on complex UIs, optimize performance, and contribute to products loved by customers worldwide."
   },
   {
@@ -141,7 +141,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://careers.swiggy.com/internship",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Work on Swiggy's food delivery platform. Build features that impact millions of users, learn scalable architecture, and solve real-world problems in a fast-paced startup environment."
   },
   {
@@ -155,7 +155,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://www.phonepe.com/careers/backend-dev",
+    applyUrl: "https://www.phonepe.com/careers",
     description: "Build payment infrastructure at PhonePe. Work on high-throughput systems, handle millions of transactions, and ensure reliability. Great opportunity to work on fintech at scale."
   },
   {
@@ -169,7 +169,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://paytm.com/careers/frontend",
+    applyUrl: "https://paytm.com/careers",
     description: "Create user interfaces for Paytm's financial products. Work on responsive designs, optimize performance, and build features used by millions of Indians daily."
   },
   {
@@ -183,7 +183,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://cred.club/careers/internship",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build features for CRED's credit card rewards platform. Work on both frontend and backend, learn modern tech stack, and contribute to a product with premium user experience."
   },
   {
@@ -197,7 +197,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 5,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://www.capgemini.com/careers/internship",
+    applyUrl: "https://www.capgemini.com/careers",
     description: "Learn DevOps practices at Capgemini. Work on CI/CD pipelines, containerization, cloud infrastructure, and automation. Great foundation for infrastructure engineering career."
   },
   {
@@ -211,7 +211,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://www.juspay.in/careers/mobile-dev",
+    applyUrl: "https://www.juspay.in/careers",
     description: "Build mobile payment SDKs at Juspay. Work on React Native apps, optimize performance, and ensure seamless payment experiences across Android and iOS platforms."
   },
   {
@@ -225,7 +225,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 6,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://careers.cognizant.com/data-engineer",
+    applyUrl: "https://www.cognizant.com/in/en/careers",
     description: "Build data pipelines and analytics solutions at Cognizant. Work with big data technologies, process large datasets, and enable data-driven decision making for clients."
   },
   {
@@ -239,7 +239,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://www.ibm.com/careers/internship",
+    applyUrl: "https://www.ibm.com/careers",
     description: "Design user experiences for IBM's enterprise software. Learn design thinking, create prototypes, conduct user research, and work with cross-functional teams to build great products."
   },
   {
@@ -253,7 +253,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 4,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://www.oracle.com/careers/internship",
+    applyUrl: "https://www.oracle.com/careers",
     description: "Work on Oracle's cloud services backend. Learn enterprise architecture, work with databases, and build scalable APIs. Great opportunity to learn from industry leaders."
   },
   {
@@ -267,7 +267,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://www.sap.com/careers/fullstack",
+    applyUrl: "https://www.sap.com/company/careers",
     description: "Build enterprise applications on SAP platform. Work with SAP technologies, modern web frameworks, and create solutions for global clients. Comprehensive training provided."
   },
   {
@@ -281,7 +281,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 7,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://www.dell.com/careers/cloud-engineer",
+    applyUrl: "https://www.dell.com/en-in/careers",
     description: "Design and manage cloud infrastructure at Dell. Work with AWS services, automate deployments, ensure security, and optimize costs. Great for cloud career growth."
   },
   {
@@ -295,7 +295,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 0,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://techvista.com/careers/intern",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Join a fast-growing startup building SaaS products. Work on full-stack features, learn startup culture, and make direct impact. Great learning environment with mentorship."
   },
   {
@@ -309,7 +309,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 8,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://datasync.in/careers/junior-dev",
+    applyUrl: "https://www.naukri.com/",
     description: "Build data processing applications at DataSync. Work on ETL pipelines, APIs, and data visualization. Learn from experienced developers in a collaborative environment."
   },
   {
@@ -323,7 +323,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 2,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://cloudnine.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Create modern web interfaces using Vue.js. Work on responsive designs, component libraries, and user experience. Perfect for frontend development enthusiasts."
   },
   {
@@ -337,7 +337,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://securenet.com/careers/backend",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build secure backend systems for cybersecurity products. Work on authentication, APIs, and data processing. Learn security best practices and scalable architecture."
   },
   {
@@ -351,7 +351,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 5,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://appflow.com/careers/qa",
+    applyUrl: "https://www.naukri.com/",
     description: "Ensure quality of mobile and web applications. Write test cases, automate testing, and work with development teams. Great entry point into QA engineering."
   },
   {
@@ -365,7 +365,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://analyticspro.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build ML models and analyze data at AnalyticsPro. Work on real-world datasets, learn data science workflows, and contribute to client projects. Ideal for ML enthusiasts."
   },
   {
@@ -379,7 +379,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://webcraft.com/careers/fullstack",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build end-to-end web applications at WebCraft. Work on modern tech stack, deploy to cloud, and create products from scratch. Great for full-stack skill development."
   },
   {
@@ -393,7 +393,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://infracloud.com/careers/devops",
+    applyUrl: "https://www.naukri.com/",
     description: "Manage cloud infrastructure and CI/CD pipelines. Work with Kubernetes, automate deployments, monitor systems, and ensure high availability. Great DevOps learning opportunity."
   },
   {
@@ -407,7 +407,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 6,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://appgenius.com/careers/mobile",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build cross-platform mobile apps using Flutter. Work on UI/UX, integrate APIs, and publish apps to stores. Great for mobile development career start."
   },
   {
@@ -421,7 +421,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 0,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://apiforge.com/careers/intern",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build RESTful APIs and microservices at APIForge. Learn modern Python frameworks, database design, and API best practices. Perfect for backend learning."
   },
   {
@@ -435,7 +435,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 3,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://uiinnovations.com/careers/frontend",
+    applyUrl: "https://www.naukri.com/",
     description: "Create modern web experiences using React and Next.js. Work on performance optimization, SEO, and build scalable frontend architecture. Great React learning opportunity."
   },
   {
@@ -449,7 +449,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 7,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://codecraft.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Work on enterprise software development at CodeCraft. Learn Java ecosystem, build full-stack features, and gain industry experience. Comprehensive mentorship provided."
   },
   {
@@ -463,7 +463,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://bigdatalabs.com/careers/data-engineer",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build data pipelines and analytics infrastructure. Work with big data tools, schedule workflows, and enable data-driven insights. Great for data engineering career."
   },
   {
@@ -477,7 +477,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://startuphub.com/careers/intern",
+    applyUrl: "https://www.naukri.com/",
     description: "Join a vibrant startup building innovative products. Work on full-stack features, learn startup culture, and make direct impact. Fast-paced learning environment."
   },
   {
@@ -491,7 +491,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 5,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://microservices.com/careers/backend",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build microservices architecture using Go. Work on distributed systems, learn containerization, and build scalable backend services. Great for modern backend skills."
   },
   {
@@ -505,7 +505,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 2,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://testpro.com/careers/qa-automation",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Automate testing for web and mobile applications. Write test scripts, integrate with CI/CD, and ensure quality. Great for QA automation career growth."
   },
   {
@@ -519,7 +519,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 0,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://designtech.com/careers/intern",
+    applyUrl: "https://www.naukri.com/",
     description: "Build beautiful user interfaces at DesignTech. Work closely with designers, implement designs, and create engaging user experiences. Perfect for frontend enthusiasts."
   },
   {
@@ -533,7 +533,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 6,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://cloudops.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Learn cloud infrastructure and DevOps practices. Work on AWS services, containerization, and automation. Great foundation for infrastructure engineering career."
   },
   {
@@ -547,7 +547,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://serverstack.com/careers/backend",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build scalable backend systems using Python and Django. Work on APIs, background jobs, and database optimization. Great Python backend learning opportunity."
   },
   {
@@ -561,7 +561,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 8,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://techflow.com/careers/fullstack",
+    applyUrl: "https://www.naukri.com/",
     description: "Build end-to-end web applications at TechFlow. Work on modern JavaScript stack, learn full-stack development, and contribute to product features."
   },
   {
@@ -575,7 +575,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://innovatelab.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Work on innovative projects at InnovateLab. Build web applications, learn modern frameworks, and solve interesting problems. Great learning environment."
   },
   {
@@ -589,7 +589,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://insightanalytics.com/careers/analyst",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Analyze business data and create insights at InsightAnalytics. Work with SQL, build dashboards, and help teams make data-driven decisions. Great analytics career start."
   },
   {
@@ -603,7 +603,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://appventure.com/careers/mobile",
+    applyUrl: "https://www.naukri.com/",
     description: "Build cross-platform mobile apps at AppVenture. Work on React Native, integrate backend services, and create smooth user experiences. Great mobile dev opportunity."
   },
   {
@@ -617,7 +617,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 5,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://servercraft.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Learn backend development with Node.js at ServerCraft. Build REST APIs, work with databases, and understand server architecture. Perfect backend learning opportunity."
   },
   {
@@ -631,7 +631,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 6,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://webflow.com/careers/frontend",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Create modern web interfaces using Vue.js. Work on component architecture, optimize performance, and build responsive designs. Great Vue.js learning opportunity."
   },
   {
@@ -645,7 +645,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://qualityassure.com/careers/qa",
+    applyUrl: "https://www.naukri.com/",
     description: "Ensure software quality at QualityAssure. Write automated tests, work with CI/CD, and collaborate with development teams. Great QA engineering opportunity."
   },
   {
@@ -659,7 +659,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 7,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://devstudio.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build full-stack applications at DevStudio. Learn MERN stack, work on real projects, and gain industry experience. Comprehensive mentorship provided."
   },
   {
@@ -673,7 +673,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://infrascale.com/careers/devops",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Manage cloud infrastructure and automation at InfraScale. Work with Kubernetes, infrastructure as code, and CI/CD pipelines. Great DevOps career opportunity."
   },
   {
@@ -687,7 +687,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://apigateway.com/careers/backend",
+    applyUrl: "https://www.naukri.com/",
     description: "Build RESTful APIs and microservices using Java Spring Boot. Work on backend architecture, database design, and API development. Great Java backend learning."
   },
   {
@@ -701,7 +701,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 2,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://mlforge.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build machine learning models at MLForge. Work on real datasets, learn ML workflows, and contribute to AI projects. Perfect for data science enthusiasts."
   },
   {
@@ -715,7 +715,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 5,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://uistudio.com/careers/frontend",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Create modern web experiences using React and Next.js at UIStudio. Work on performance, SEO, and build scalable frontend. Great React development opportunity."
   },
   {
@@ -729,7 +729,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 0,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://codebase.com/careers/intern",
+    applyUrl: "https://www.naukri.com/",
     description: "Work on full-stack development at CodeBase. Learn Django and React, build features, and gain real-world experience. Great learning environment with mentorship."
   },
   {
@@ -743,7 +743,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 3,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://microapi.com/careers/backend",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Build GraphQL APIs and microservices at MicroAPI. Work on modern backend architecture, learn GraphQL, and build scalable systems. Great backend opportunity."
   },
   {
@@ -757,7 +757,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 6,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://testautomation.com/careers/qa",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Automate testing workflows at TestAutomation Pro. Learn Playwright, write test scripts, and integrate with CI/CD. Great QA automation learning opportunity."
   },
   {
@@ -771,7 +771,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 4,
     salaryRange: "6–10 LPA",
-    applyUrl: "https://stackbuild.com/careers/fullstack",
+    applyUrl: "https://www.naukri.com/",
     description: "Build end-to-end applications at StackBuild. Work on MERN stack, deploy to cloud, and create products from scratch. Great full-stack development opportunity."
   },
   {
@@ -785,7 +785,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 1,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://cloudnative.com/careers/intern",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Learn cloud-native technologies at CloudNative. Work with Kubernetes, containers, and cloud services. Great foundation for DevOps and infrastructure career."
   },
   {
@@ -799,7 +799,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 7,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://appmakers.com/careers/mobile",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build cross-platform mobile apps using Flutter at AppMakers. Work on UI/UX, integrate APIs, and publish apps. Great mobile development opportunity."
   },
   {
@@ -813,7 +813,7 @@ const JOBS_DATA = [
     source: "Naukri",
     postedDaysAgo: 2,
     salaryRange: "₹15k–₹40k/month Internship",
-    applyUrl: "https://serverside.com/careers/intern",
+    applyUrl: "https://www.naukri.com/",
     description: "Learn backend development with Python FastAPI at ServerSide. Build APIs, work with databases, and understand microservices. Perfect backend learning."
   },
   {
@@ -827,7 +827,7 @@ const JOBS_DATA = [
     source: "LinkedIn",
     postedDaysAgo: 8,
     salaryRange: "3–5 LPA",
-    applyUrl: "https://webdesignpro.com/careers/frontend",
+    applyUrl: "https://www.indeed.co.in/",
     description: "Create modern web interfaces at WebDesign Pro. Work on React components, optimize performance, and build responsive designs. Great frontend learning opportunity."
   },
   {
@@ -841,7 +841,7 @@ const JOBS_DATA = [
     source: "Indeed",
     postedDaysAgo: 9,
     salaryRange: "10–18 LPA",
-    applyUrl: "https://datapipeline.com/careers/data-engineer",
+    applyUrl: "https://www.linkedin.com/jobs/",
     description: "Build data pipelines and ETL workflows at DataPipeline. Work with big data tools, schedule jobs, and enable analytics. Great data engineering opportunity."
   }
 ];
