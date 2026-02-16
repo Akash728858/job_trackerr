@@ -28,7 +28,6 @@
       <a href="#/saved" class="jnt-nav-link" data-route="saved">Saved</a>
       <a href="#/digest" class="jnt-nav-link" data-route="digest">Digest</a>
       <a href="#/settings" class="jnt-nav-link" data-route="settings">Settings</a>
-      <a href="#/proof" class="jnt-nav-link" data-route="proof">Proof</a>
     </nav>
   </header>
 
@@ -273,54 +272,6 @@
       </div>
     </section>
 
-    <!-- Proof (main nav) — Final Proof & submission -->
-    <section class="jnt-page jnt-final-proof-page" id="page-proof">
-      <div class="jnt-final-proof-wrap">
-        <h2 class="jnt-page-title">Project 1 — Job Notification Tracker</h2>
-        <div class="jnt-proof-status-badge" id="jnt-proof-status-badge">Not Started</div>
-        <p class="jnt-proof-shipped-msg jnt-hidden" id="jnt-proof-shipped-msg">Project 1 Shipped Successfully.</p>
-
-        <section class="jnt-proof-section" aria-labelledby="jnt-proof-steps-heading">
-          <h3 class="jnt-proof-section-title" id="jnt-proof-steps-heading">A) Step Completion Summary</h3>
-          <ul class="jnt-proof-steps" id="jnt-proof-steps">
-            <li class="jnt-proof-step" data-step="1"><span class="jnt-proof-step-status">Pending</span> Dashboard &amp; job listing</li>
-            <li class="jnt-proof-step" data-step="2"><span class="jnt-proof-step-status">Pending</span> Preferences &amp; match scoring</li>
-            <li class="jnt-proof-step" data-step="3"><span class="jnt-proof-step-status">Pending</span> Saved jobs</li>
-            <li class="jnt-proof-step" data-step="4"><span class="jnt-proof-step-status">Pending</span> Digest generation</li>
-            <li class="jnt-proof-step" data-step="5"><span class="jnt-proof-step-status">Pending</span> Status tracking</li>
-            <li class="jnt-proof-step" data-step="6"><span class="jnt-proof-step-status">Pending</span> Status filter</li>
-            <li class="jnt-proof-step" data-step="7"><span class="jnt-proof-step-status">Pending</span> Test checklist (10/10)</li>
-            <li class="jnt-proof-step" data-step="8"><span class="jnt-proof-step-status">Pending</span> Artifact links</li>
-          </ul>
-        </section>
-
-        <section class="jnt-proof-section" aria-labelledby="jnt-proof-artifacts-heading">
-          <h3 class="jnt-proof-section-title" id="jnt-proof-artifacts-heading">B) Artifact Collection Inputs</h3>
-          <div class="jnt-proof-fields">
-            <div class="jnt-field">
-              <label class="jnt-label" for="jnt-proof-lovable">Lovable Project Link</label>
-              <input type="url" id="jnt-proof-lovable" class="jnt-input" placeholder="https://...">
-              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-lovable-error" aria-live="polite"></span>
-            </div>
-            <div class="jnt-field">
-              <label class="jnt-label" for="jnt-proof-github">GitHub Repository Link</label>
-              <input type="url" id="jnt-proof-github" class="jnt-input" placeholder="https://github.com/...">
-              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-github-error" aria-live="polite"></span>
-            </div>
-            <div class="jnt-field">
-              <label class="jnt-label" for="jnt-proof-deployed">Deployed URL (Vercel or equivalent)</label>
-              <input type="url" id="jnt-proof-deployed" class="jnt-input" placeholder="https://...">
-              <span class="jnt-proof-field-error jnt-hidden" id="jnt-proof-deployed-error" aria-live="polite"></span>
-            </div>
-          </div>
-        </section>
-
-        <div class="jnt-proof-actions">
-          <button type="button" class="jnt-btn jnt-btn-primary" id="jnt-proof-copy-btn">Copy Final Submission</button>
-        </div>
-      </div>
-    </section>
-
     <!-- Built-In Test Checklist (jt/07-test) -->
     <section class="jnt-page jnt-test-page" id="page-jt-07-test">
       <div class="jnt-test-wrap">
@@ -394,7 +345,7 @@
         <div class="jnt-ship-locked jnt-ship-state" id="jnt-ship-locked">
           <div class="jnt-ship-lock-icon" aria-hidden="true">🔒</div>
           <h2 class="jnt-page-title">Ship Locked</h2>
-          <p class="jnt-page-subtext">Complete all 10 items on the <a href="#/jt/07-test" class="jnt-ship-link">Built-In Test Checklist</a> and provide all artifact links on <a href="#/proof" class="jnt-ship-link">Proof</a> to unlock.</p>
+          <p class="jnt-page-subtext">Complete all 10 items on the <a href="#/jt/07-test" class="jnt-ship-link">Built-In Test Checklist</a> to unlock.</p>
         </div>
         <div class="jnt-ship-unlocked jnt-ship-state jnt-hidden" id="jnt-ship-unlocked">
           <h2 class="jnt-page-title">Ready to Ship</h2>

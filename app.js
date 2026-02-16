@@ -17,9 +17,6 @@ const STATUS_VALUES = ['Not Applied', 'Applied', 'Rejected', 'Selected'];
 const JNT_TEST_CHECKLIST_KEY = 'jnt-test-checklist';
 const JNT_TEST_COUNT = 10;
 
-const JNT_PROOF_LINKS_KEY = 'jnt-proof-links';
-const PROOF_LINK_KEYS = ['lovable', 'github', 'deployed'];
-
 // Initialize
 function init() {
   allJobs = [...JOBS_DATA];
@@ -170,7 +167,7 @@ function renderTestPage() {
 function renderShipPage() {
   const lockedEl = document.getElementById('jnt-ship-locked');
   const unlockedEl = document.getElementById('jnt-ship-unlocked');
-  const canShip = allTestsPassed() && allProofLinksValid();
+  const canShip = allTestsPassed();
   if (canShip) {
     if (lockedEl) lockedEl.classList.add('jnt-hidden');
     if (unlockedEl) unlockedEl.classList.remove('jnt-hidden');
@@ -185,131 +182,6 @@ function getJntRoute() {
   const parts = hash.split('/').filter(Boolean);
   if (parts[0] === 'jt' && parts[1]) return 'jt-' + parts[1];
   return parts[0] || 'home';
-}
-
-// ---------- Final Proof & submission ----------
-function validateUrl(value) {
-  if (!value || typeof value !== 'string') return false;
-  const trimmed = value.trim();
-  if (!trimmed) return false;
-  try {
-    const u = new URL(trimmed);
-    return u.protocol === 'http:' || u.protocol === 'https:';
-  } catch (e) {
-    return false;
-  }
-}
-
-function getProofLinks() {
-  try {
-    const raw = localStorage.getItem(JNT_PROOF_LINKS_KEY);
-    const parsed = raw ? JSON.parse(raw) : {};
-    return { lovable: parsed.lovable || '', github: parsed.github || '', deployed: parsed.deployed || '' };
-  } catch (e) {
-    return { lovable: '', github: '', deployed: '' };
-  }
-}
-
-function setProofLinks(links) {
-  try {
-    localStorage.setItem(JNT_PROOF_LINKS_KEY, JSON.stringify(links));
-  } catch (e) {
-    console.error('Error saving proof links:', e);
-  }
-}
-
-function allProofLinksValid() {
-  const links = getProofLinks();
-  return PROOF_LINK_KEYS.every(key => validateUrl(links[key]));
-}
-
-function getProject1Status() {
-  const testsOk = allTestsPassed();
-  const linksOk = allProofLinksValid();
-  if (testsOk && linksOk) return 'shipped';
-  const hasAnyLink = PROOF_LINK_KEYS.some(key => getProofLinks()[key].trim().length > 0);
-  const anyTestChecked = Object.values(getTestChecklistState()).some(Boolean);
-  if (hasAnyLink || anyTestChecked) return 'in-progress';
-  return 'not-started';
-}
-
-function getProofStepCompletion() {
-  let prefs = null;
-  try {
-    const r = localStorage.getItem('jobTrackerPreferences');
-    prefs = r ? JSON.parse(r) : null;
-  } catch (e) {}
-  const hasPrefs = prefs && (prefs.roleKeywords || (prefs.preferredLocations && prefs.preferredLocations.length > 0));
-  const digestStored = getStoredDigestForToday();
-  const statusMap = getJobStatusMap();
-  const hasAnyStatus = Object.keys(statusMap).length > 0;
-  return {
-    1: true,
-    2: !!hasPrefs,
-    3: true,
-    4: !!(digestStored && digestStored.jobs && digestStored.jobs.length > 0),
-    5: hasAnyStatus,
-    6: true,
-    7: allTestsPassed(),
-    8: allProofLinksValid()
-  };
-}
-
-function renderProofPage() {
-  const completion = getProofStepCompletion();
-  const stepsEl = document.getElementById('jnt-proof-steps');
-  if (stepsEl) {
-    stepsEl.querySelectorAll('.jnt-proof-step').forEach(li => {
-      const step = parseInt(li.dataset.step, 10);
-      const statusSpan = li.querySelector('.jnt-proof-step-status');
-      const isCompleted = !!completion[step];
-      if (statusSpan) statusSpan.textContent = isCompleted ? 'Completed' : 'Pending';
-      li.classList.toggle('jnt-proof-step-completed', isCompleted);
-      li.classList.toggle('jnt-proof-step-pending', !isCompleted);
-    });
-  }
-
-  const status = getProject1Status();
-  const badgeEl = document.getElementById('jnt-proof-status-badge');
-  if (badgeEl) {
-    badgeEl.textContent = status === 'shipped' ? 'Shipped' : status === 'in-progress' ? 'In Progress' : 'Not Started';
-    badgeEl.className = 'jnt-proof-status-badge jnt-proof-status-' + status;
-  }
-
-  const shippedMsgEl = document.getElementById('jnt-proof-shipped-msg');
-  if (shippedMsgEl) {
-    shippedMsgEl.classList.toggle('jnt-hidden', status !== 'shipped');
-  }
-
-  const links = getProofLinks();
-  const lovableInput = document.getElementById('jnt-proof-lovable');
-  const githubInput = document.getElementById('jnt-proof-github');
-  const deployedInput = document.getElementById('jnt-proof-deployed');
-  if (lovableInput) lovableInput.value = links.lovable;
-  if (githubInput) githubInput.value = links.github;
-  if (deployedInput) deployedInput.value = links.deployed;
-}
-
-function buildFinalSubmissionText() {
-  const links = getProofLinks();
-  return `------------------------------------------
-Job Notification Tracker — Final Submission
-
-Lovable Project:
-${links.lovable || '(not set)'}
-
-GitHub Repository:
-${links.github || '(not set)'}
-
-Live Deployment:
-${links.deployed || '(not set)'}
-
-Core Features:
-- Intelligent match scoring
-- Daily digest simulation
-- Status tracking
-- Test checklist enforced
-------------------------------------------`;
 }
 
 // Load preferences from localStorage
@@ -459,8 +331,6 @@ function setupEventListeners() {
       renderTestPage();
     } else if (route === 'jt-08-ship') {
       renderShipPage();
-    } else if (route === 'jt-proof' || route === 'proof') {
-      renderProofPage();
     }
   });
 
@@ -479,44 +349,7 @@ function setupEventListeners() {
     renderTestPage();
   } else if (initialRoute === 'jt-08-ship') {
     renderShipPage();
-  } else if (initialRoute === 'jt-proof' || initialRoute === 'proof') {
-    renderProofPage();
   }
-
-  // Final Proof: link inputs (validate URL, store in localStorage)
-  const proofInputIds = ['jnt-proof-lovable', 'jnt-proof-github', 'jnt-proof-deployed'];
-  const proofKeys = ['lovable', 'github', 'deployed'];
-  proofInputIds.forEach((id, i) => {
-    const input = document.getElementById(id);
-    const errorEl = document.getElementById(id + '-error');
-    if (!input) return;
-    input.addEventListener('blur', () => {
-      const val = input.value.trim();
-      const links = getProofLinks();
-      links[proofKeys[i]] = val;
-      if (val && !validateUrl(val)) {
-        if (errorEl) { errorEl.textContent = 'Please enter a valid URL (http or https).'; errorEl.classList.remove('jnt-hidden'); }
-        setProofLinks(links);
-      } else {
-        if (errorEl) errorEl.classList.add('jnt-hidden');
-        setProofLinks(links);
-      }
-      renderProofPage();
-    });
-    input.addEventListener('input', () => {
-      if (errorEl) errorEl.classList.add('jnt-hidden');
-    });
-  });
-
-  // Copy Final Submission
-  document.getElementById('jnt-proof-copy-btn')?.addEventListener('click', () => {
-    const text = buildFinalSubmissionText();
-    navigator.clipboard.writeText(text).then(() => {
-      showNotification('Final submission copied to clipboard.', 'info');
-    }).catch(() => {
-      showNotification('Could not copy to clipboard.', 'info');
-    });
-  });
 
   // Built-In Test Checklist: checkbox change and Reset
   document.getElementById('jnt-test-checklist')?.addEventListener('change', (e) => {

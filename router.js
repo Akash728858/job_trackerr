@@ -3,7 +3,7 @@
  * Hash-based router — works everywhere (file://, any server)
  */
 
-const ROUTES = ['home', 'dashboard', 'saved', 'digest', 'settings', 'proof', 'jt-07-test', 'jt-08-ship', 'jt-proof'];
+const ROUTES = ['home', 'dashboard', 'saved', 'digest', 'settings', 'jt-07-test', 'jt-08-ship'];
 
 function getRoute() {
   const hash = window.location.hash.slice(1).replace(/^\/?/, '');
@@ -12,7 +12,6 @@ function getRoute() {
     const sub = parts[1];
     if (sub === '07-test') return 'jt-07-test';
     if (sub === '08-ship') return 'jt-08-ship';
-    if (sub === 'proof') return 'jt-proof';
   }
   const path = parts[0] || 'home';
   return ROUTES.includes(path) ? path : 'home';
@@ -25,13 +24,13 @@ function navigate(route) {
 }
 
 function render(route) {
-  const pageId = route === 'jt-proof' ? 'page-proof' : `page-${route}`;
+  const pageId = `page-${route}`;
   document.querySelectorAll('.jnt-page').forEach((el) => {
     el.classList.toggle('active', el.id === pageId);
   });
   document.querySelectorAll('.jnt-nav-link').forEach((link) => {
     const linkRoute = link.dataset.route;
-    link.classList.toggle('active', linkRoute === route || (route === 'jt-proof' && linkRoute === 'proof'));
+    link.classList.toggle('active', linkRoute === route);
   });
 }
 
